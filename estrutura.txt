@@ -1,0 +1,12 @@
+fitmind-backend/
+├── app/
+│   ├── main.py              # Ponto de entrada da API
+│   ├── models/              # Modelos do banco (ORM)
+│   ├── schemas/             # Schemas (Pydantic) para validação
+│   ├── routes/              # Rotas organizadas por funcionalidade
+│   ├── services/            # Lógica da aplicação
+│   ├── auth/                # Tudo sobre autenticação JWT
+│   └── database.py          # Conexão com o banco de dados
+├── .env                     # Variáveis de ambiente (como senha do banco)
+├── requirements.txt         # Pacotes necessários
+└── README.md

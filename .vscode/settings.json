@@ -1,0 +1,21 @@
+{
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDelete": false,
+    "explorer.compactFolders": false,
+    "editor.fontSize": 16,
+    "code-runner.runInTerminal": true,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.executorMap": {
+        "python": "cls ; python -u"
+    },
+    "code-runner.ignoreSelection": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Bearded Theme Black & Emerald",
+    "git.autofetch": true,
+
+    // ✅ Faz o terminal abrir na pasta do back-end
+    "terminal.integrated.cwd": "${workspaceFolder}",
+
+    // ✅ Ativa o venv automaticamente (VS Code precisa estar com extensão Python instalada)
+    "python.terminal.activateEnvironment": true
+}
