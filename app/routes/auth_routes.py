@@ -6,7 +6,8 @@ from jose import jwt, JWTError
 from fastapi.security import OAuth2PasswordBearer
 from app.database import get_db
 from app.models.usuarios import Usuario
-from app.schemas.auth_schemas import LoginRequest, TokenResponse
+from app.schemas.auth_schemas import LoginRequest, TokenResponse, RegisterRequest
+
 
 router = APIRouter()
 
@@ -53,3 +54,17 @@ def get_current_user(
         raise credentials_exception
 
     return user
+
+@router.post("/register")
+def register(register_data: RegisterRequest, db: Session = Depends(get_db)):
+    usuario_existente = db.query(Usuario).filter(Usuario.nome_usuario == register_data.nome_usuario).first()
+    if usuario_existente:
+        raise HTTPException(status_code=400, detail="Usuário já existe")
+
+    novo_usuario = Usuario(
+        nome_usuario=register_data.nome_usuario,
+        senha=register_data.senha
+    )
+    db.add(novo_usuario)
+    db.commit()
+    return {"mensagem": "Usuário cadastrado com sucesso"}
